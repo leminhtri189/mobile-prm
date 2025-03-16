@@ -1,7 +1,11 @@
 package com.datj.mobile.viewmodel;
 
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,15 +13,16 @@ import androidx.lifecycle.ViewModel;
 import com.datj.mobile.data.remote.response.LoginResponse;
 import com.datj.mobile.data.repository.AuthRepository;
 
-public class LoginViewModel extends ViewModel {
+public class LoginViewModel extends AndroidViewModel {
     public MutableLiveData<String> userEmail = new MutableLiveData<>("");
     public MutableLiveData<String> userPassword = new MutableLiveData<>("");
     public MutableLiveData<String> toastMessage = new MutableLiveData<>("");
     private final AuthRepository authRepository;
     private final MutableLiveData<LoginResponse> loginResult = new MutableLiveData<>();
 
-    public LoginViewModel() {
-        authRepository = new AuthRepository();
+    public LoginViewModel(@NonNull Application application) {
+        super(application);
+        this.authRepository = new AuthRepository(); // Không cần Context nữa
     }
 
     public LiveData<LoginResponse> getLoginResult() {

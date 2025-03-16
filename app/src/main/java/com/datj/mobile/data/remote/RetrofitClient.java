@@ -1,5 +1,7 @@
 package com.datj.mobile.data.remote;
 
+import android.content.Context;
+
 import com.datj.mobile.data.remote.api.AccountApiService;
 
 import okhttp3.OkHttpClient;
@@ -19,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
                 // Tạo OkHttpClient và thêm interceptor
                 OkHttpClient client = new OkHttpClient.Builder()
+                        .addInterceptor(new AuthInterceptor())
                         .addInterceptor(logging)
                         .build();
 
