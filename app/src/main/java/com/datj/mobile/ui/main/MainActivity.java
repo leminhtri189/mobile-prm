@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.datj.mobile.R;
 import com.datj.mobile.ui.fragment.HomeFragment;
+import com.datj.mobile.ui.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.nav_home) {
                 selectedFragment = new HomeFragment();
             } else if (itemId == R.id.nav_shop) {
-               // selectedFragment = new ShopFragment();
+              //  selectedFragment = new ShopFragment();
             } else if (itemId == R.id.nav_blog) {
                // selectedFragment = new BlogFragment();
             } else if (itemId == R.id.nav_notifications) {
                // selectedFragment = new NotificationFragment();
             } else if (itemId == R.id.nav_profile) {
-              //  selectedFragment = new ProfileFragment();
+                selectedFragment = new ProfileFragment();
             }
 
             if (selectedFragment != null) {
@@ -43,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-        // Load Fragment mặc định khi mở app
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new HomeFragment())

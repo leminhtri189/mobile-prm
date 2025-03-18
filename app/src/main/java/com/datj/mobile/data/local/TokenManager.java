@@ -24,12 +24,20 @@ public class TokenManager {
         return instance;
     }
 
+    public void clearToken() {
+        sharedPreferences.edit().remove(KEY_TOKEN).apply();
+    }
 
     public String getToken() {
         return sharedPreferences.getString(KEY_TOKEN, null);
     }
+    public void saveToken(String token) {
+        sharedPreferences.edit().putString(KEY_TOKEN, token).apply();
+
+    }
     public void decodeAndSaveRole(String token) {
         try {
+            saveToken(token);
             JWT jwt = new JWT(token);
             String role = jwt.getClaim("role").asString();
             if (role != null) {

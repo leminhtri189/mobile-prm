@@ -31,7 +31,6 @@ public class LoginViewModel extends AndroidViewModel {
 
     // Hàm xử lý khi nhấn nút đăng nhập
     public void onButtonClicked() {
-        Log.d("LoginViewModel", "Button clicked");
         String email = userEmail.getValue();
         String password = userPassword.getValue();
 
