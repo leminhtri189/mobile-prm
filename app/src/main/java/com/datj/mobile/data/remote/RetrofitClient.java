@@ -1,6 +1,9 @@
 package com.datj.mobile.data.remote;
 
+import android.content.Context;
+
 import com.datj.mobile.data.remote.api.AccountApiService;
+import com.datj.mobile.data.remote.api.OrderApiService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -8,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
     public class RetrofitClient {
-        private static final String BASE_URL = "http://10.0.2.2:8080/";  // Thay bằng địa chỉ server của bạn
+        private static final String BASE_URL = "http://10.0.2.2:8080/";
         private static Retrofit retrofit = null;
 
         private static Retrofit getRetrofitInstance() {
@@ -19,6 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
                 // Tạo OkHttpClient và thêm interceptor
                 OkHttpClient client = new OkHttpClient.Builder()
+                        .addInterceptor(new AuthInterceptor())
                         .addInterceptor(logging)
                         .build();
 
@@ -34,6 +38,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
         // 🔄 Sử dụng lại getRetrofitInstance() để tạo AccountApiService
         public static AccountApiService getAccountApiService() {
             return getRetrofitInstance().create(AccountApiService.class);
+        }
+        public static OrderApiService getOrderApiService() {
+            return getRetrofitInstance().create(OrderApiService.class);
         }
     }
 
