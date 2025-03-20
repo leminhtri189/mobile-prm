@@ -45,6 +45,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.android.material:material:1.6.0")
+    //jwt
     implementation ("com.auth0.android:jwtdecode:2.0.2")
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -7,21 +7,29 @@
     android:layout_height="match_parent">
 
     <!-- Toolbar -->
+
+    <!-- Thanh tìm kiếm + icon chat -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="My Shop" />
+        app:titleTextColor="@color/black"
+        android:paddingTop="25dp"
+        app:title="DAT J"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:textSize="22sp"
+        app:titleTextAppearance="@style/ToolbarTitleStyle"/>
 
-    <!-- Thanh tìm kiếm + icon chat -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/toolbar"
         app:layout_anchorGravity="bottom"
-        android:padding="8dp">
+        android:paddingTop="55dp"
+        >
 
         <!-- Search View -->
         <androidx.appcompat.widget.SearchView
@@ -29,6 +37,8 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:queryHint="Search accessories..."
+            android:background="@drawable/search_view_bg"
+            android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/chat_icon"
             app:layout_constraintTop_toTopOf="parent"

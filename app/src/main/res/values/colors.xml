@@ -13,4 +13,6 @@
 
     <color name="red600">#E53935</color>
     <color name="red900">#B71C1C</color>
+    <color name="bottom_nav_color">#000000</color>
+
 </resources>
