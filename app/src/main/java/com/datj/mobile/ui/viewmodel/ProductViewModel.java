@@ -4,16 +4,29 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.datj.mobile.data.remote.model.Product;
+import com.datj.mobile.data.repository.ProductRepository;
+import java.util.List;
 
 public class ProductViewModel extends ViewModel {
-    private final MutableLiveData<Product> product = new MutableLiveData<>();
+    private ProductRepository productRepository;
+    private MutableLiveData<List<Product>> productList = new MutableLiveData<>();
 
-    public void setProduct(Product productData) {
-        product.setValue(productData);
+    public ProductViewModel() {
+        productRepository = new ProductRepository();
+        loadProducts(); // Load danh sách sản phẩm khi khởi tạo ViewModel
     }
 
-    public LiveData<Product> getProductById(int productId) {
-        // TODO: Fetch product from API or database
-        return product;
+    private void loadProducts() {
+        productRepository.getAllProducts().observeForever(products -> {
+            productList.setValue(products);
+        });
     }
+
+    public LiveData<List<Product>> getAllProducts() {
+        return productList;
+    }
+    public LiveData<Product> getProductByAccessoryId(int accessoryId) {
+        return productRepository.getProductByAccessoryId(accessoryId);
+    }
+
 }

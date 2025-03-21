@@ -10,6 +10,7 @@ public class Product {
     private int quantity;
     private AccessoryType accessoryType;
     private Shape shape;
+
     private List<AccessoryImage> accessoryImages;
 
     // Nested classes for AccessoryType, Shape, and AccessoryImage
