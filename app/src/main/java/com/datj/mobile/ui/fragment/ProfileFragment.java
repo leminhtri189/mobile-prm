@@ -39,7 +39,7 @@ public class ProfileFragment extends Fragment {
             if (account != null) {
                 binding.setAccount(account);
                 // Không có ảnh đại diện, giữ placeholder mặc định từ XML
-                binding.profileImageView.setImageResource(R.drawable.ic_profile_placeholder);
+                binding.profileImageView.setImageResource(R.drawable.ic_profile);
             } else {
                 Toast.makeText(getContext(), "Không tải được thông tin tài khoản", Toast.LENGTH_SHORT).show();
             }

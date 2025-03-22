@@ -41,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, selectedFragment)
+                        .replace(R.id.fragment_container_view, selectedFragment)
                         .commit();
             }
             return true;
         });
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new HomeFragment())
+                    .replace(R.id.fragment_container_view, new HomeFragment())
                     .commit();
         }
     }

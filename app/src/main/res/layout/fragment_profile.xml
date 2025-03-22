@@ -10,52 +10,49 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray00"
-        android:padding="16dp">
+        android:background="@android:color/white"
+        android:layout_marginTop="200dp"
+        android:padding="8dp">
 
         <!-- Card chính chứa thông tin -->
         <androidx.cardview.widget.CardView
             android:id="@+id/profileCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="32dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="24dp">
 
-                <!-- Ảnh đại diện với viền gradient -->
+                <!-- Ảnh đại diện -->
                 <ImageView
                     android:id="@+id/profileImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_profile_placeholder"
+                    android:src="@drawable/ic_profile"
                     android:contentDescription="profile"
                     android:scaleType="centerCrop"
-                    android:padding="4dp"
+                    android:background="@color/white"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
+                    app:layout_constraintEnd_toEndOf="parent"/>
                 <!-- Tên người dùng -->
                 <TextView
                     android:id="@+id/nameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{account.name}"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="@color/gray00"
-                    android:maxLines="1"
-                    android:ellipsize="end"
+                    android:textColor="@android:color/black"
                     app:layout_constraintTop_toBottomOf="@id/profileImageView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +73,8 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/ic_blog" />
+                        android:src="@drawable/ic_blog"
+                        />
 
                     <TextView
                         android:id="@+id/emailTextView"
@@ -84,18 +82,18 @@
                         android:layout_height="wrap_content"
                         android:text="@{account.email}"
                         android:textSize="14sp"
-                        android:textColor="@color/gray600"
+                        android:textColor="@android:color/darker_gray"
                         android:layout_marginStart="6dp" />
                 </LinearLayout>
 
-                <!-- Hạng thành viên với badge -->
+                <!-- Hạng thành viên -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/rankContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="20dp"
+                    app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/orange100"
+                    app:cardBackgroundColor="@android:color/black"
                     app:layout_constraintTop_toBottomOf="@id/emailContainer"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -105,33 +103,32 @@
                         android:id="@+id/rankTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/orange700"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
                         android:paddingHorizontal="12dp"
-                        android:paddingVertical="4dp" />
+                        android:paddingVertical="6dp"
+                        android:text="VIP Member" />
                 </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Nút Đăng xuất với hiệu ứng -->
+        <!-- Nút Đăng xuất -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="logout"
+            android:layout_height="50dp"
+            android:text="Đăng xuất"
             android:textSize="16sp"
             android:textAllCaps="false"
-            android:backgroundTint="@color/red600"
+            android:backgroundTint="@android:color/black"
             android:textColor="@android:color/white"
             app:cornerRadius="12dp"
-            app:rippleColor="@color/red900"
+            app:rippleColor="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@id/profileCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginHorizontal="8dp" />
+            android:layout_marginTop="24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,6 +2,7 @@ package com.datj.mobile.data.remote;
 
 import android.content.Context;
 
+import com.datj.mobile.data.remote.api.AccessoryApiService;
 import com.datj.mobile.data.remote.api.AccountApiService;
 import com.datj.mobile.data.remote.api.OrderApiService;
 
@@ -41,6 +42,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
         }
         public static OrderApiService getOrderApiService() {
             return getRetrofitInstance().create(OrderApiService.class);
+        }
+        public static AccessoryApiService getAccessoryApiService() {
+            return getRetrofitInstance().create(AccessoryApiService.class);
         }
     }
 

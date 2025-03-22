@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_marginTop="115dp"
+    android:layout_marginBottom="95dp"
+    android:paddingStart="8dp"
+    android:background="@color/white"
+    android:paddingEnd="8dp">
 
     <TextView
-        android:layout_width="394dp"
-        android:layout_height="461dp"
-        android:text="Welcome to Home"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:id="@+id/helloTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     Hello"
+        android:textSize="20sp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:padding="2dp"
+        android:layout_marginBottom="0dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/accessoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:listitem="@layout/item_accessory"
+        tools:visibility="visible"/>
 </LinearLayout>

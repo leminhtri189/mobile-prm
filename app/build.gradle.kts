@@ -47,6 +47,14 @@ dependencies {
     implementation ("com.google.android.material:material:1.6.0")
     //jwt
     implementation ("com.auth0.android:jwtdecode:2.0.2")
+
+    //glide for accessory
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
+    //avt css
+    implementation ("com.google.android.material:material:1.9.0")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
