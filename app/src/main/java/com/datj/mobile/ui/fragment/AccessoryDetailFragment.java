@@ -64,7 +64,7 @@ public class AccessoryDetailFragment extends Fragment {
         buttonAddToCart.setOnClickListener(v -> {
             String selectedSize = spinnerSize.getSelectedItem().toString(); // nếu dùng Spinner
             CartManager.addItem(new CartItem(accessory, selectedSize, 1));
-            Toast.makeText(getContext(), "Đã thêm vào giỏ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Add to cart successfully", Toast.LENGTH_SHORT).show();
 
             // Cập nhật số lượng trên icon cart
             ((MainActivity) requireActivity()).updateCartBadge();

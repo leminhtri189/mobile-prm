@@ -25,7 +25,7 @@ public class AccessoryViewModel extends ViewModel {
 
     public void fetchAccessories() {
         int pageSize = 50;
-        int pageNumber = 1;
+        int pageNumber = 3;
         AccessoryApiService service = RetrofitClient.getAccessoryApiService();
         service.getAccessories(pageSize,pageNumber).enqueue(new Callback<AccessoryResponse>() {
             @Override
