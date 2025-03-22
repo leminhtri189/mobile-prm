@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.datj.mobile.data.local.TokenManager;
 import com.datj.mobile.data.remote.response.LoginResponse;
 import com.datj.mobile.data.repository.AuthRepository;
 
@@ -48,6 +49,7 @@ public class LoginViewModel extends AndroidViewModel {
                 // Chuyển sang luồng chính để cập nhật LiveData
                 new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
                     loginResult.setValue(new LoginResponse(token));
+                    TokenManager.getInstance().decodeAndSaveRole(token); // đã có trong code bạn
                     toastMessage.setValue("Login successful with email: " + email);
                 });
             }
