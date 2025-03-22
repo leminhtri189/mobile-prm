@@ -55,6 +55,8 @@ dependencies {
     //avt css
     implementation ("com.google.android.material:material:1.9.0")
 
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
