@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.accessoryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new AccessoryAdapter(new ArrayList<>());
+        adapter = new AccessoryAdapter(new ArrayList<>(),requireContext());
         recyclerView.setAdapter(adapter);
 
         // ✅ Khởi tạo ViewModel

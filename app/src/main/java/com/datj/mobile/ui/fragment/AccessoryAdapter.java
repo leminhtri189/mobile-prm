@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -15,11 +18,26 @@ import com.datj.mobile.R;
 import com.datj.mobile.data.remote.model.Accessory;
 import com.datj.mobile.data.remote.model.AccessoryImage;
 
+import android.content.Context;
 import java.util.List;
 
 public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.AccessoryViewHolder> {
     private List<Accessory> accessoryList;
+    private Context context;
+    private OnAccessoryClickListener listener;
 
+    public AccessoryAdapter(List<Accessory> accessoryList, Context context) {
+        this.accessoryList = accessoryList;
+        this.context = context;
+    }
+
+    public AccessoryAdapter(List<Accessory> accessories, OnAccessoryClickListener listener) {
+        this.accessoryList = accessories;
+        this.listener = listener;
+    }
+    public interface OnAccessoryClickListener {
+        void onAccessoryClick(Accessory accessory);
+    }
     public AccessoryAdapter(List<Accessory> accessoryList) {
         this.accessoryList = accessoryList;
     }
@@ -36,6 +54,9 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.Acce
     @Override
     public void onBindViewHolder(@NonNull AccessoryViewHolder holder, int position) {
         Accessory accessory = accessoryList.get(position);
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) listener.onAccessoryClick(accessory);
+        });
 
         String name = accessory.getName();
         Log.d("AccessoryAdapter", "Đang vẽ: " + name);
@@ -43,7 +64,14 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.Acce
         holder.accessoryNameTextView.setText(accessory.getName());
         holder.accessoryTypeTextView.setText("Type: " + accessory.getAccessoryType().getName());
         holder.accessoryKaratTextView.setText(accessory.getKarat() + " Karat");
-
+        holder.itemView.setOnClickListener(v -> {
+            Fragment detailFragment = AccessoryDetailFragment.newInstance(accessory);
+            FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, detailFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
         List<AccessoryImage> images = accessory.getAccessoryImages();
         if (images != null && !images.isEmpty()) {
             String imageUrl = images.get(0).getUrl();
@@ -52,7 +80,9 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.Acce
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_launcher_foreground)
                     .into(holder.imageView);
+
         }
+
     }
 
     @Override

@@ -1,8 +1,9 @@
 package com.datj.mobile.data.remote.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Accessory {
+public class Accessory implements Serializable {
     private int accessoryId;
     private int karat;
     private double materialWeight;
@@ -22,5 +23,21 @@ public class Accessory {
 
     public int getKarat() {
         return karat;
+    }
+
+    public double getMaterialWeight() {
+        return materialWeight;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public boolean isHidden() {
+        return isHidden;
+    }
+
+    public Shape getShape() {
+        return shape;
     }
 }

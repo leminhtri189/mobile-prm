@@ -1,6 +1,8 @@
 package com.datj.mobile.ui.main;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.datj.mobile.R;
+import com.datj.mobile.data.remote.model.CartManager;
 import com.datj.mobile.ui.fragment.HomeFragment;
 import com.datj.mobile.ui.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container_view, new HomeFragment())
                     .commit();
+        }
+
+    }
+    public void updateCartBadge() {
+        TextView badge = findViewById(R.id.cart_badge);
+        int totalQuantity = CartManager.getTotalQuantity();
+        if (totalQuantity > 0) {
+            badge.setVisibility(View.VISIBLE);
+            badge.setText(String.valueOf(totalQuantity));
+        } else {
+            badge.setVisibility(View.GONE);
         }
     }
 }
