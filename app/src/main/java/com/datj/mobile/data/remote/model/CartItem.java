@@ -11,7 +11,29 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public Accessory getAccessory() { return accessory; }
-    public String getSelectedSize() { return selectedSize; }
-    public int getQuantity() { return quantity; }
+
+    public Accessory getAccessory() {
+        return accessory;
+    }
+
+    public String getSize() {
+        return selectedSize;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setAccessory(Accessory accessory) {
+        this.accessory = accessory;
+    }
+
+    public void setSize(String size) {
+        this.selectedSize = size;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 }

@@ -45,4 +45,10 @@ public class Accessory implements Serializable {
     public double getPrice() {
         return price;
     }
+    public String getFirstImageUrl() {
+        if (accessoryImages != null && !accessoryImages.isEmpty()) {
+            return accessoryImages.get(0).getUrl();
+        }
+        return ""; // hoặc null nếu bạn muốn kiểm tra sau
+    }
 }

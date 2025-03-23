@@ -2,6 +2,7 @@ package com.datj.mobile.ui.main;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.datj.mobile.R;
 import com.datj.mobile.data.local.CartManager;
 import com.datj.mobile.data.local.CartStorage;
+import com.datj.mobile.ui.fragment.CartFragment;
 import com.datj.mobile.ui.fragment.HomeFragment;
 import com.datj.mobile.ui.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -56,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container_view, new HomeFragment())
                     .commit();
         }
+
+        ImageView iconCart = findViewById(R.id.icon_cart);
+        iconCart.setOnClickListener(v -> {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_view, new CartFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
 
     }
     public void updateCartBadge() {
