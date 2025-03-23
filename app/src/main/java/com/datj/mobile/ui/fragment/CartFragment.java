@@ -1,5 +1,6 @@
 package com.datj.mobile.ui.fragment;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 import com.datj.mobile.R;
 import com.datj.mobile.data.local.CartManager;
 import com.datj.mobile.data.remote.model.CartItem;
+import com.datj.mobile.ui.main.MainActivity;
 
 import java.util.List;
 
@@ -26,6 +28,8 @@ public class CartFragment extends Fragment {
     private Button checkoutButton;
 
     public CartFragment() {}
+
+    private OnCartChangedListener cartChangedListener;
 
     @Nullable
     @Override
@@ -43,6 +47,9 @@ public class CartFragment extends Fragment {
             adapter.notifyDataSetChanged();
             double total = CartManager.calculateTotal();
             totalPriceText.setText("Total: $" + String.format("%.2f", total));
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).onCartChanged();
+            }
         });
         recyclerView.setAdapter(adapter);
 
@@ -55,9 +62,21 @@ public class CartFragment extends Fragment {
         return view;
     }
 
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof OnCartChangedListener) {
+            cartChangedListener = (OnCartChangedListener) context;
+        }
+    }
+
     private void refreshCart() {
         adapter.notifyDataSetChanged();
         double total = CartManager.calculateTotal();
         totalPriceText.setText("Total: $" + String.format("%.2f", total));
+    }
+    public interface OnCartChangedListener {
+        void onCartChanged();
     }
 }

@@ -7,7 +7,7 @@
     <item
         android:id="@+id/nav_shop"
         android:icon="@drawable/ic_shop"
-        android:title="Shop" />
+        android:title="My Order" />
     <item
         android:id="@+id/nav_blog"
         android:icon="@drawable/ic_blog"

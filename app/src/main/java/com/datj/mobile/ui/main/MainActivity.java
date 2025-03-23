@@ -17,7 +17,7 @@ import com.datj.mobile.ui.fragment.HomeFragment;
 import com.datj.mobile.ui.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CartFragment.OnCartChangedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         });
 
+    }
+    @Override
+    public void onCartChanged() {
+        updateCartBadge();
     }
     public void updateCartBadge() {
         TextView badge = findViewById(R.id.cart_badge);
