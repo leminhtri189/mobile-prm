@@ -1,5 +1,6 @@
 package com.datj.mobile.ui.fragment;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,6 @@ import com.datj.mobile.R;
 import com.datj.mobile.data.remote.model.Accessory;
 import com.datj.mobile.data.remote.model.AccessoryImage;
 
-import android.content.Context;
 import java.util.List;
 
 public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.AccessoryViewHolder> {
@@ -35,9 +35,11 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.Acce
         this.accessoryList = accessories;
         this.listener = listener;
     }
+
     public interface OnAccessoryClickListener {
         void onAccessoryClick(Accessory accessory);
     }
+
     public AccessoryAdapter(List<Accessory> accessoryList) {
         this.accessoryList = accessoryList;
     }
@@ -65,7 +67,8 @@ public class AccessoryAdapter extends RecyclerView.Adapter<AccessoryAdapter.Acce
         holder.accessoryTypeTextView.setText("Type: " + accessory.getAccessoryType().getName());
         holder.accessoryKaratTextView.setText(accessory.getKarat() + " Karat");
         holder.itemView.setOnClickListener(v -> {
-            Fragment detailFragment = AccessoryDetailFragment.newInstance(accessory);
+            int id = accessory.getAccessoryId();
+            Fragment detailFragment = AccessoryDetailFragment.newInstance(id);
             FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_view, detailFragment)

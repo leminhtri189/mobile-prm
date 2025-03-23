@@ -8,6 +8,7 @@ public class Accessory implements Serializable {
     private int karat;
     private double materialWeight;
     private String name;
+    private double price;
     private int quantity;
     private AccessoryType accessoryType;
     private boolean isHidden;
@@ -39,5 +40,9 @@ public class Accessory implements Serializable {
 
     public Shape getShape() {
         return shape;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

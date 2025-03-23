@@ -5,16 +5,16 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string-array name="ring_sizes">
-        <item>Size 3</item>
-        <item>Size 3.5</item>
-        <item>Size 4</item>
-        <item>Size 4.5</item>
-        <item>Size 5</item>
-        <item>Size 5.5</item>
-        <item>Size 6</item>
-        <item>Size 6.5</item>
-        <item>Size 7</item>
-        <item>Size 7.5</item>
-        <item>Size 8</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
     </string-array>
 </resources>

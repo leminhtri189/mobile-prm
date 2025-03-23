@@ -14,6 +14,6 @@ public interface AccessoryApiService {
             @Query("PageSize") int pageSize,
             @Query("PageNumber") int pageNumber
     );
-    @GET("api/Accessories/{id}")
+    @GET("api/Accessories/1/{id}")
     Call<Accessory> getAccessoryById(@Path("id") int id);
 }
