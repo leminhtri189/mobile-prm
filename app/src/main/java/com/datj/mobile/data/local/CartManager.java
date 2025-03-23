@@ -1,4 +1,6 @@
-package com.datj.mobile.data.remote.model;
+package com.datj.mobile.data.local;
+
+import com.datj.mobile.data.remote.model.CartItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,10 @@ public class CartManager {
         }
         return total;
     }
-
+    public static void setItems(List<CartItem> items) {
+        cartItems.clear();
+        cartItems.addAll(items);
+    }
     public static void clear() {
         cartItems.clear();
     }

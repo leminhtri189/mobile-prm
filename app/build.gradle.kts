@@ -42,9 +42,13 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation ("androidx.appcompat:appcompat:1.4.1")
     implementation ("androidx.core:core-ktx:1.8.0")
+
+    //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
     implementation ("com.google.android.material:material:1.6.0")
+
     //jwt
     implementation ("com.auth0.android:jwtdecode:2.0.2")
 
@@ -55,7 +59,11 @@ dependencies {
     //avt css
     implementation ("com.google.android.material:material:1.9.0")
 
+    //constraint layout
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    //Gson to create Json on device
+    implementation("com.google.code.gson:gson:2.10")
 
     implementation(libs.appcompat)
     implementation(libs.material)

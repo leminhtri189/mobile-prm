@@ -17,16 +17,12 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.datj.mobile.R;
-import com.datj.mobile.data.remote.RetrofitClient;
+import com.datj.mobile.data.local.CartStorage;
 import com.datj.mobile.data.remote.api.AccessoryApiService;
 import com.datj.mobile.data.remote.model.Accessory;
-import com.datj.mobile.data.remote.model.AccessoryImage;
 import com.datj.mobile.data.remote.model.CartItem;
-import com.datj.mobile.data.remote.model.CartManager;
+import com.datj.mobile.data.local.CartManager;
 import com.datj.mobile.ui.main.MainActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +32,7 @@ public class AccessoryDetailFragment extends Fragment {
 
     private Accessory accessory;
     private int accessoryId;
+    private Call<Accessory> accessoryCall;
 
     public AccessoryDetailFragment() {}
 
@@ -55,7 +52,8 @@ public class AccessoryDetailFragment extends Fragment {
         int accessoryId = getArguments().getInt("accessoryId");
         AccessoryApiService apiService = getAccessoryApiService();
 
-        apiService.getAccessoryById(accessoryId).enqueue(new Callback<Accessory>() {
+        accessoryCall = apiService.getAccessoryById(accessoryId);
+        accessoryCall.enqueue(new Callback<Accessory>() {
             @Override
             public void onResponse(Call<Accessory> call, Response<Accessory> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -93,6 +91,7 @@ public class AccessoryDetailFragment extends Fragment {
         buttonAddToCart.setOnClickListener(v -> {
             String selectedSize = spinnerSize.getSelectedItem().toString();
             CartManager.addItem(new CartItem(accessory, selectedSize, 1));
+            CartStorage.saveCart(getContext(), CartManager.getItems());
             Toast.makeText(getContext(), "Add to cart successfully", Toast.LENGTH_SHORT).show();
             ((MainActivity) requireActivity()).updateCartBadge();
         });
@@ -100,5 +99,13 @@ public class AccessoryDetailFragment extends Fragment {
         backButton.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().popBackStack();
         });
+
+    }
+    @Override
+    public void onDestroyView() {
+        if (accessoryCall != null && !accessoryCall.isCanceled()) {
+            accessoryCall.cancel();
+        }
+        super.onDestroyView();
     }
 }
