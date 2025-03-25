@@ -5,6 +5,7 @@ import android.content.Context;
 import com.datj.mobile.data.remote.api.AccessoryApiService;
 import com.datj.mobile.data.remote.api.AccountApiService;
 import com.datj.mobile.data.remote.api.OrderApiService;
+import com.datj.mobile.data.remote.api.BlogApiService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -45,6 +46,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
         }
         public static AccessoryApiService getAccessoryApiService() {
             return getRetrofitInstance().create(AccessoryApiService.class);
+        }
+        public static BlogApiService getBlogApiService(){
+            return getRetrofitInstance().create(BlogApiService.class);
         }
     }
 

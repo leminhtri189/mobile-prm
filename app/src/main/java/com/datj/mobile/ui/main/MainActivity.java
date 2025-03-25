@@ -13,6 +13,7 @@ import com.datj.mobile.R;
 import com.datj.mobile.data.local.CartManager;
 import com.datj.mobile.data.local.CartStorage;
 import com.datj.mobile.ui.fragment.CartFragment;
+import com.datj.mobile.ui.fragment.BlogFragment;
 import com.datj.mobile.ui.fragment.HomeFragment;
 import com.datj.mobile.ui.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements CartFragment.OnCa
             } else if (itemId == R.id.nav_shop) {
               //  selectedFragment = new ShopFragment();
             } else if (itemId == R.id.nav_blog) {
-               // selectedFragment = new BlogFragment();
+                selectedFragment = new BlogFragment();
             } else if (itemId == R.id.nav_notifications) {
                // selectedFragment = new NotificationFragment();
             } else if (itemId == R.id.nav_profile) {
