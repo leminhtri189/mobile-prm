@@ -1,5 +1,7 @@
 package com.datj.mobile.data.network;
 
+import com.datj.mobile.data.remote.api.CartApiService;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -15,5 +17,14 @@ public class ApiClient {
                     .build();
         }
         return retrofit;
+    }
+    public static CartApiService getCartApiService() {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit.create(CartApiService.class);
     }
 }

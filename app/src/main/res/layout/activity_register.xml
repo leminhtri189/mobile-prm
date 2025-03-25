@@ -4,17 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/gray100">
+    android:padding="24dp"
+    android:background="@android:color/white">
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng ký"
-        android:textSize="24sp"
+        android:text="Register"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="@color/gray600"
+        android:textColor="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -22,8 +22,11 @@
         android:id="@+id/nameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Họ và tên"
+        android:hint="Full name"
         android:inputType="textPersonName"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,23 +36,29 @@
         android:id="@+id/phoneEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Số điện thoại"
+        android:hint="Phone number"
         android:inputType="phone"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/nameEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <EditText
         android:id="@+id/addressEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Địa chỉ"
+        android:hint="Address"
         android:inputType="textPostalAddress"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/phoneEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <EditText
         android:id="@+id/emailEditText"
@@ -57,41 +66,51 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/addressEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Mật khẩu"
+        android:hint="Password"
         android:inputType="textPassword"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/emailEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <EditText
         android:id="@+id/birthdayEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ngày sinh (YYYY-MM-DD)"
+        android:hint="Birthday (YYYY-MM-DD)"
         android:inputType="date"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <Spinner
         android:id="@+id/genderSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/birthdayEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="12dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerButton"
@@ -100,9 +119,9 @@
         android:text="Đăng ký"
         android:textSize="16sp"
         android:textAllCaps="false"
-        android:backgroundTint="@color/red600"
+        android:backgroundTint="@android:color/black"
         android:textColor="@android:color/white"
-        app:cornerRadius="12dp"
+        app:cornerRadius="16dp"
         app:layout_constraintTop_toBottomOf="@id/genderSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

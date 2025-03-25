@@ -5,5 +5,7 @@
     tools:context=".ui.main.MainActivity">
 
     <include layout="@layout/main_layout" />
+
+
 </merge>
 

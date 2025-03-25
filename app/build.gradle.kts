@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services") version "4.4.2" apply false
 }
 
 android {
@@ -35,6 +36,20 @@ android {
 }
 
 dependencies {
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation ("com.google.maps.android:android-maps-utils:2.3.0")
+    implementation("com.google.android.gms:play-services-maps:18.2.0") // Maps SDK
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation ("androidx.core:core:1.12.0")// thông báo
+    implementation ("me.leolin:ShortcutBadger:1.1.22@aar")// thông báo
+    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
+    implementation("com.google.firebase:firebase-firestore:24.10.1") // Firestore Database
+    implementation("com.google.firebase:firebase-messaging:23.2.1") // Cloud Messaging
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation ("com.google.firebase:firebase-auth:22.1.2")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.google.gms:google-services:4.4.2")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
@@ -50,6 +65,7 @@ dependencies {
 
     //glide for accessory
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.firebase.database)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
 
     //avt css
