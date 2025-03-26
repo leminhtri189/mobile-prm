@@ -6,6 +6,7 @@ import com.datj.mobile.data.remote.api.AccessoryApiService;
 import com.datj.mobile.data.remote.api.AccountApiService;
 import com.datj.mobile.data.remote.api.OrderApiService;
 import com.datj.mobile.data.remote.api.BlogApiService;
+import com.datj.mobile.data.remote.api.PromotionApiService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -50,5 +51,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
         public static BlogApiService getBlogApiService(){
             return getRetrofitInstance().create(BlogApiService.class);
         }
+
+        public static PromotionApiService getPromotionApiService() {
+            return getRetrofitInstance().create(PromotionApiService.class);
+        }
+        
+
     }
 

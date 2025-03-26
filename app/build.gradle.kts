@@ -32,6 +32,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {
@@ -64,6 +65,14 @@ dependencies {
 
     //Gson to create Json on device
     implementation("com.google.code.gson:gson:2.10")
+
+    //Paypal
+    implementation("com.paypal.checkout:android-sdk:1.3.2")
+    implementation("com.paypal.android:paypal-web-payments:2.0.0")
+
+    //browser
+    implementation ("androidx.browser:browser:1.7.0")
+
 
     implementation(libs.appcompat)
     implementation(libs.material)

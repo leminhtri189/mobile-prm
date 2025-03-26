@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
@@ -56,7 +57,11 @@ public class CartFragment extends Fragment {
         refreshCart();
 
         checkoutButton.setOnClickListener(v -> {
-            // TODO: handle checkout logic here
+            Fragment checkoutFragment = new CheckoutFragment();
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_view, checkoutFragment);
+            transaction.addToBackStack(null); // để quay lại được
+            transaction.commit();
         });
 
         return view;

@@ -3,6 +3,7 @@ package com.datj.mobile.data.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.datj.mobile.data.remote.MyApplication;
 import com.datj.mobile.data.remote.model.CartItem;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -61,4 +62,5 @@ public class CartManager {
         }
         return total;
     }
+
 }
