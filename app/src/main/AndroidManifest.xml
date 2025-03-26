@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -18,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobile"
+
         tools:targetApi="31">
         <activity
             android:name=".ui.customview.LoginActivity"
@@ -55,6 +59,22 @@
         <activity android:name=".ui.customview.RegisterActivity" />
 
 
+        <activity android:name=".ui.customview.ChatActivity" />
+        <activity
+            android:name=".ui.customview.VerifyEmailActivity"
+            android:exported="true">
+            <intent-filter>
+                <data android:scheme="myapp" android:host="verify-email"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCQ89znR8eEc8tKthreCj_4Xjq8UgMEJKk" />
     </application>
 
 </manifest>

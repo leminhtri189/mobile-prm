@@ -5,8 +5,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.datj.mobile.R;
@@ -16,9 +20,10 @@ import com.datj.mobile.ui.fragment.CartFragment;
 import com.datj.mobile.ui.fragment.BlogFragment;
 import com.datj.mobile.ui.fragment.HomeFragment;
 import com.datj.mobile.ui.fragment.ProfileFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements CartFragment.OnCartChangedListener {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

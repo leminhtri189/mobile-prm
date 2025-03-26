@@ -5,8 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,19 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.datj.mobile.R;
-import com.datj.mobile.data.remote.api.AccessoryApiService;
-import com.datj.mobile.data.remote.model.Accessory;
-import com.datj.mobile.data.remote.response.AccessoryResponse;
 import com.datj.mobile.viewmodel.AccessoryViewModel;
-import com.datj.mobile.viewmodel.AccountViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import com.datj.mobile.data.remote.RetrofitClient;
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private AccessoryAdapter adapter;
@@ -52,7 +41,10 @@ public class HomeFragment extends Fragment {
                 Log.d("TestUI", "Adapter item count: " + adapter.getItemCount());
             }
         });
-
+      //  binding.storeLocationButton.setOnClickListener(v -> {
+          //  Intent intent = new Intent(requireContext(), StoreLocationActivity.class);
+           // startActivity(intent);
+     //   });
         // ✅ Gọi API để lấy dữ liệu
         viewModel.fetchAccessories();
 

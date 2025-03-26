@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.datj.mobile.data.remote.RetrofitClient;
-import com.datj.mobile.data.remote.api.AccountApiService;
 import com.datj.mobile.data.remote.api.OrderApiService;
 import com.datj.mobile.data.remote.model.Order;
 import com.datj.mobile.databinding.FragmentShopBinding;
@@ -44,6 +43,8 @@ public class ShopFragment extends Fragment {
         orderApiService = RetrofitClient.getOrderApiService();
         setupRecyclerView();
         fetchOrders();
+
+
     }
 
     private void setupRecyclerView() {
@@ -62,7 +63,6 @@ public class ShopFragment extends Fragment {
                     Log.d("ShopDebug", "Orders fetched: " + response.body().size());
                 } else {
                     Toast.makeText(getContext(), "Không tải được đơn hàng", Toast.LENGTH_SHORT).show();
-                   // Log.e("ShopDebug", "Error: " + response.code() + " - " + response.message());
                 }
             }
 
