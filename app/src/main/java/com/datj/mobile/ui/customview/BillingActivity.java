@@ -37,43 +37,43 @@ public class BillingActivity extends AppCompatActivity {
        // });
     }
 
-    private void syncCartWithServer() {
-        Cursor cursor = dbHelper.getCartItems();
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                int productId = cursor.getInt(cursor.getColumnIndexOrThrow("product_id"));
-                int quantity = cursor.getInt(cursor.getColumnIndexOrThrow("quantity"));
-
-                // Gửi từng mục trong giỏ hàng lên server
-                CartItem cartItem = new CartItem(productId, quantity);
-                Call<Void> call = apiService.addCartItem(cartItem);
-                call.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        if (response.isSuccessful()) {
-                            // Đồng bộ thành công
-                        } else {
-                            Toast.makeText(BillingActivity.this, "Lỗi đồng bộ", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(BillingActivity.this, "Không kết nối được server", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                cursor.moveToNext();
-            }
-        }
-        cursor.close();
-
-        // Sau khi đồng bộ thành công, xóa giỏ hàng cục bộ và cập nhật badge
-        dbHelper.clearCart();
-        updateCartBadge(0);
-
-        // (Tùy chọn) Lấy lại số lượng từ server nếu cần
-        fetchCartCountFromApi();
-    }
+//    private void syncCartWithServer() {
+//        Cursor cursor = dbHelper.getCartItems();
+//        if (cursor.moveToFirst()) {
+//            while (!cursor.isAfterLast()) {
+//                int productId = cursor.getInt(cursor.getColumnIndexOrThrow("product_id"));
+//                int quantity = cursor.getInt(cursor.getColumnIndexOrThrow("quantity"));
+//
+//                // Gửi từng mục trong giỏ hàng lên server
+//                CartItem cartItem = new CartItem(productId, quantity);
+//                Call<Void> call = apiService.addCartItem(cartItem);
+//                call.enqueue(new Callback<Void>() {
+//                    @Override
+//                    public void onResponse(Call<Void> call, Response<Void> response) {
+//                        if (response.isSuccessful()) {
+//                            // Đồng bộ thành công
+//                        } else {
+//                            Toast.makeText(BillingActivity.this, "Lỗi đồng bộ", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<Void> call, Throwable t) {
+//                        Toast.makeText(BillingActivity.this, "Không kết nối được server", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                cursor.moveToNext();
+//            }
+//        }
+//        cursor.close();
+//
+//        // Sau khi đồng bộ thành công, xóa giỏ hàng cục bộ và cập nhật badge
+//        dbHelper.clearCart();
+//        updateCartBadge(0);
+//
+//        // (Tùy chọn) Lấy lại số lượng từ server nếu cần
+//        fetchCartCountFromApi();
+//    }
 
     private void updateCartBadge(int cartCount) {
         ShortcutBadger.applyCount(this, cartCount);

@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    @Override
     public void onCartChanged() {
         updateCartBadge();
     }
